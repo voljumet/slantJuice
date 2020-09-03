@@ -3,7 +3,7 @@ import scala.io.Source
 var col:Int = 0
 var row:Int = 0
 
-var fname = "/Users/alex/Library/Mobile Documents/com~apple~CloudDocs/UiA/DAT233 P.Konsepter/juice_ny/src/main/scala/puzzle_unsolved.txt"
+var fname = "/Users/alex/Library/Mobile Documents/com~apple~CloudDocs/UiA/DAT233 P.Konsepter/slantJuice/src/main/scala/puzzle_unsolved.txt"
 for(line <- Source.fromFile(fname).getLines) {
   row = line.length
   col+=1
