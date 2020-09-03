@@ -43,7 +43,17 @@ print("Cols: " +col+"\nRows: "+row)
 var str:Array[String] = Source.fromFile(fname).getLines().toArray
 var mapArr = Array.ofDim[SuperNum](row, col)
 
-def createObj(k: SuperNum, i:Int,j:Int, stri:String): SuperNum ={
+def createNumber(k: SuperNum, i:Int,j:Int, stri:String): SuperNum ={
+  k.x = j
+  k.y = i
+  if (j < stri.length)
+    k.value = stri(j)
+  else
+    k.value = ' '
+  return k
+}
+
+def createSlant(k: SuperNum, i:Int,j:Int, stri:String): SuperNum ={
   k.x = j
   k.y = i
   if (j < stri.length)
@@ -59,12 +69,14 @@ for(i <- 0 until row) {
     if (stri(i) != ' ')
       if(stri(i) == 'x'){
         val k = new Slant
-        mapArr(i)(j) = createObj(k,i,j, stri)
+        mapArr(i)(j) = createSlant(k,i,j, stri)
       } else {
         val k = new Number
-        mapArr(i)(j) = createObj(k,i,j, stri)
+        mapArr(i)(j) = createNumber(k,i,j, stri)
       }
 }
+
+
 
 println(mapArr(0)(0).check)
 println(mapArr(1)(0).x)
